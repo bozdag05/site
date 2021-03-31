@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<h1>Заимствованные книги</h1>
+
+{% if list %}
+<ul>
+
+    {% for lis in list %}
+    {% if lis.borrower %}
+
+    <a class="list-group-item">{{ lis.borrower }}</a>
+    <a href="{% url 'book' lis.book.pk %}" class="{% if lis.is_overdue %}text-danger{% endif %}">
+        {{lis.book}}:
+        {{ lis.imprint}} ({{ lis.due_back }})</a><a href="{% url 'renew-book-librarian' lis.pk %}"> - обновить</a>
+
+
+    {% else %}
+
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>Здесь нет книг, взятых взаймы.</p>
+{% endif %}
+{% endblock %}

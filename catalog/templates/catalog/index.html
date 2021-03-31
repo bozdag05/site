@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %}
+
+{% block sidebar %}
+<div class="col-md-3">
+    <div class="list-group">
+        {% if user.is_staff %}
+        <li class="list-group-item">User: {{ user.username }}</li>
+        <li class="list-group-item"><a href="{% url 'users_list' %}">Список клиентов</a></li>
+        <li class="list-group-item"><a href="{% url 'my-borrowed' %}">Мои книги</a></li>
+        {% elif user.is_authenticated %}
+        <li>User: {{ user.username }}</li>
+        <li class="list-group-item"><a href="{% url 'my-borrowed' %}">Мои книги</a></li>
+        {% endif %}
+    </div>
+</div>
+<p>Вы посетили эту страницу {{ num_visits }} {% if num_visits == 1 %} раз {% else %} раза {% endif %}.</p>
+
+{% endblock %}
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="https://2017-godu.ru/wp-content/uploads/2016/09/2dd4feaa730d121736540a7b.jpg" class="card-img-top"
+                 alt="" width="350" height="250"
+                 class="float-left mr-3">
+            <div class="card-body">
+                <a href="books/"><h5 class="card-title">Книги</h5></a>
+                <p class="card-text"> Здесь вы можете посмотреть каталог книг и прочесть те книги которые захотите </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="http://gbousosh26.minobr63.ru/wp-content/uploads/2020/02/Kartinki_dlya_oformleniya_24_02085537.gif"
+                 class="card-img-top" alt="" width="350" height="250"
+                 class="float-left mr-3">
+            <div class="card-body">
+                <a href="authors/"><h5 class="card-title">Авторы</h5></a>
+                <p class="card-text">Здесь вы можете найти авторов книг, просеть их биографию
+                    и узнать какие книги они написали.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
