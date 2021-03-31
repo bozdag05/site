@@ -278,4 +278,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Text backup files
+*.bak
+
+#Database
+*.sqlite3
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,pycharm,python
