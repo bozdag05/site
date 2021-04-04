@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = 'jf-%rf^lhil6=e8ykt5t0p0jdg9(c(lxbzw4b)@0vl4e@^+sky'
 import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'jf-%rf^lhil6=e8ykt5t0p0jdg9(c(lxbzw4b)@0vl4e@^+sky')
-
+#SECRET_KEY = 'qlg)qx+9cws-0!)dp)l^h7ry8$5^lxm(ss0*4z(6$0+y+9c1z)'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = False
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
