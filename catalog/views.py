@@ -74,7 +74,7 @@ def get_books(request):
 
 
 def get_genre(request, genre_id):
-    books = Book.objects.filter(genre_id=genre_id)
+    books = Book.objects.filter(genre=genre_id)
     genres = Genre.objects.all()
     genre = Genre.objects.get(pk=genre_id)
     context = {
